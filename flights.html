@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yashaswini Airways | Flights</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* ================= BANNER ================= */
+
+        .page-banner {
+            position: relative;
+            height: 330px;
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+
+        .flight-banner-image {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            left: 0;
+            top: 0;
+
+            z-index: 0;
+        }
+
+        .page-banner::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background: rgba(0, 35, 80, 0.55);
+
+            z-index: 1;
+        }
+
+        .banner-content {
+            position: relative;
+
+            z-index: 2;
+
+            color: white;
+        }
+
+        .banner-content h1 {
+            font-size: 55px;
+
+            margin: 0 0 15px;
+
+            color: white;
+        }
+
+        .banner-content p {
+            font-size: 20px;
+
+            color: white;
+
+            margin: 0;
+        }
+
+
+        /* ================= FLIGHT SECTION ================= */
+
+        .flight-section {
+            width: 90%;
+
+            max-width: 1400px;
+
+            margin: 50px auto;
+        }
+
+
+        /* ================= FLIGHT CARD ================= */
+
+        .flight-card {
+            display: grid !important;
+
+            grid-template-columns: 260px 1fr 180px !important;
+
+            align-items: center !important;
+
+            gap: 35px !important;
+
+            background: white;
+
+            padding: 25px;
+
+            margin-bottom: 30px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+            overflow: hidden;
+
+            box-sizing: border-box;
+        }
+
+
+        /* ================= FLIGHT IMAGE ================= */
+
+        .flight-card > img {
+            width: 260px !important;
+
+            height: 170px !important;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            display: block;
+
+            position: static !important;
+        }
+
+
+        /* ================= FLIGHT DETAILS ================= */
+
+        .flight-details {
+            position: static !important;
+
+            width: auto !important;
+
+            min-width: 0;
+
+            overflow: visible !important;
+        }
+
+
+        .flight-number {
+            display: block;
+
+            color: #0878c9;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+
+        .flight-details h2 {
+            margin: 0 0 30px;
+
+            color: #082b67;
+
+            font-size: 28px;
+        }
+
+
+        /* ================= TIME ================= */
+
+        .flight-time {
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+        }
+
+
+        .flight-time div {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+
+        .flight-time strong {
+            font-size: 18px;
+        }
+
+
+        .flight-time small {
+            color: #666;
+
+            font-size: 15px;
+        }
+
+
+        .duration {
+            color: #0878c9;
+
+            white-space: nowrap;
+
+            display: block !important;
+        }
+
+
+        /* ================= PRICE ================= */
+
+        .flight-price {
+            text-align: center;
+
+            position: static !important;
+        }
+
+
+        .flight-price span {
+            display: block;
+
+            color: #666;
+
+            margin-bottom: 8px;
+        }
+
+
+        .flight-price h2 {
+            color: #082b67;
+
+            font-size: 28px;
+
+            margin: 5px 0 15px;
+        }
+
+
+        /* ================= BOOK BUTTON ================= */
+
+        .book-btn {
+            display: inline-block;
+
+            background: #082b67;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 14px 25px;
+
+            border-radius: 10px;
+
+            font-size: 17px;
+
+            transition: 0.3s;
+        }
+
+
+        .book-btn:hover {
+            background: #f5c400;
+
+            color: #082b67;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .flight-card {
+                grid-template-columns: 1fr !important;
+
+                text-align: center;
+            }
+
+
+            .flight-card > img {
+                width: 100% !important;
+
+                height: 220px !important;
+            }
+
+
+            .flight-time {
+                justify-content: center;
+
+                flex-wrap: wrap;
+            }
+
+
+            .flight-price {
+                margin-top: 20px;
+            }
+
+
+            .banner-content h1 {
+                font-size: 40px;
+            }
+
+
+            .banner-content p {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        ✈ Yashaswini Airways
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="flights.html" class="active">
+            Flights
+        </a>
+
+        <a href="booking.html">
+            Booking
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="login.html" class="login-link">
+            Login
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ================= AVAILABLE FLIGHTS BANNER ================= -->
+
+<section class="page-banner">
+
+
+    <img
+        src="images/flight-banner.jpg"
+        alt="Yashaswini Airways Aircraft"
+        class="flight-banner-image"
+    >
+
+
+    <div class="banner-content">
+
+        <h1>
+            Available Flights
+        </h1>
+
+        <p>
+            Choose your perfect journey with Yashaswini Airways.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= AVAILABLE FLIGHTS ================= -->
+
+<section class="flight-section">
+
+
+    <!-- ================= FLIGHT 1 ================= -->
+
+    <div class="flight-card">
+
+
+        <img
+            src="images/flight1.jpg"
+            alt="Yashaswini Airways Flight"
+        >
+
+
+        <div class="flight-details">
+
+            <span class="flight-number">
+                YA 101
+            </span>
+
+
+            <h2>
+                Hyderabad → Delhi
+            </h2>
+
+
+            <div class="flight-time">
+
+
+                <div>
+
+                    <strong>
+                        06:30 AM
+                    </strong>
+
+                    <small>
+                        Hyderabad
+                    </small>
+
+                </div>
+
+
+                <div class="duration">
+
+                    ✈ ───── 2h 15m ─────
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        08:45 AM
+                    </strong>
+
+                    <small>
+                        Delhi
+                    </small>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="flight-price">
+
+            <span>
+                Starting from
+            </span>
+
+
+            <h2>
+                ₹4,999
+            </h2>
+
+
+            <a
+                href="booking.html"
+                class="book-btn"
+            >
+                Book Now
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ================= FLIGHT 2 ================= -->
+
+    <div class="flight-card">
+
+
+        <img
+            src="images/flight2.jpg"
+            alt="Yashaswini Airways Flight"
+        >
+
+
+        <div class="flight-details">
+
+            <span class="flight-number">
+                YA 202
+            </span>
+
+
+            <h2>
+                Chennai → Mumbai
+            </h2>
+
+
+            <div class="flight-time">
+
+
+                <div>
+
+                    <strong>
+                        09:15 AM
+                    </strong>
+
+                    <small>
+                        Chennai
+                    </small>
+
+                </div>
+
+
+                <div class="duration">
+
+                    ✈ ───── 2h 05m ─────
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        11:20 AM
+                    </strong>
+
+                    <small>
+                        Mumbai
+                    </small>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="flight-price">
+
+            <span>
+                Starting from
+            </span>
+
+
+            <h2>
+                ₹5,499
+            </h2>
+
+
+            <a
+                href="booking.html"
+                class="book-btn"
+            >
+                Book Now
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ================= FLIGHT 3 ================= -->
+
+    <div class="flight-card">
+
+
+        <img
+            src="images/flight3.jpg"
+            alt="Yashaswini Airways Flight"
+        >
+
+
+        <div class="flight-details">
+
+            <span class="flight-number">
+                YA 303
+            </span>
+
+
+            <h2>
+                Bangalore → Kolkata
+            </h2>
+
+
+            <div class="flight-time">
+
+
+                <div>
+
+                    <strong>
+                        01:00 PM
+                    </strong>
+
+                    <small>
+                        Bangalore
+                    </small>
+
+                </div>
+
+
+                <div class="duration">
+
+                    ✈ ───── 2h 45m ─────
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        03:45 PM
+                    </strong>
+
+                    <small>
+                        Kolkata
+                    </small>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="flight-price">
+
+            <span>
+                Starting from
+            </span>
+
+
+            <h2>
+                ₹6,299
+            </h2>
+
+
+            <a
+                href="booking.html"
+                class="book-btn"
+            >
+                Book Now
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ================= FLIGHT 4 ================= -->
+
+    <div class="flight-card">
+
+
+        <img
+            src="images/flight4.jpg"
+            alt="Yashaswini Airways Flight"
+        >
+
+
+        <div class="flight-details">
+
+            <span class="flight-number">
+                YA 404
+            </span>
+
+
+            <h2>
+                Delhi → Goa
+            </h2>
+
+
+            <div class="flight-time">
+
+
+                <div>
+
+                    <strong>
+                        04:30 PM
+                    </strong>
+
+                    <small>
+                        Delhi
+                    </small>
+
+                </div>
+
+
+                <div class="duration">
+
+                    ✈ ───── 2h 30m ─────
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        07:00 PM
+                    </strong>
+
+                    <small>
+                        Goa
+                    </small>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="flight-price">
+
+            <span>
+                Starting from
+            </span>
+
+
+            <h2>
+                ₹5,999
+            </h2>
+
+
+            <a
+                href="booking.html"
+                class="book-btn"
+            >
+                Book Now
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        ✈ Yashaswini Airways
+    </div>
+
+
+    <p>
+        Connecting dreams, one journey at a time.
+    </p>
+
+
+    <p>
+        © 2026 Yashaswini Airways.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+
+<script src="js/script.js"></script>
+
+
+</body>
+
+</html>

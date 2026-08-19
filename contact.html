@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Yashaswini Airways | Contact</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+
+        /* ================= CONTACT BANNER ================= */
+
+        .contact-banner {
+
+            min-height: 420px;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 20, 45, 0.45),
+                    rgba(0, 20, 45, 0.45)
+                ),
+                url("images/contact-banner.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: white;
+
+            padding: 60px 20px;
+        }
+
+
+        .contact-banner h1 {
+
+            font-size: 48px;
+            margin-bottom: 15px;
+
+        }
+
+
+        .contact-banner p {
+
+            font-size: 20px;
+
+        }
+
+
+        /* ================= FOUNDER SECTION ================= */
+
+        .founder-section {
+
+            padding: 90px 8%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5f8fc,
+                    #ffffff
+                );
+
+            text-align: center;
+
+        }
+
+
+        .founder-label {
+
+            color: #f5bd19;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            font-size: 14px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .founder-section > h2 {
+
+            color: #09265c;
+
+            font-size: 40px;
+
+            margin-bottom: 50px;
+
+        }
+
+
+        /* ================= FOUNDER CARD ================= */
+
+        .founder-card {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            background: white;
+
+            border-radius: 28px;
+
+            padding: 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 50px;
+
+            text-align: left;
+
+            box-shadow:
+                0 15px 40px rgba(9, 38, 92, 0.15);
+
+            border: 1px solid #e8edf5;
+
+        }
+
+
+        /* ================= FOUNDER IMAGE ================= */
+
+        .founder-photo {
+
+            flex: 0 0 300px;
+
+        }
+
+
+        .founder-photo img {
+
+            width: 400px;
+
+            height: 370px;
+
+            object-fit: cover;
+
+            object-position: center top;
+
+            border-radius: 22px;
+
+            display: block;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.18);
+
+        }
+
+
+        /* ================= FOUNDER CONTENT ================= */
+
+        .founder-info {
+
+            flex: 1;
+
+        }
+
+
+        .founder-info h3 {
+
+            color: #09265c;
+
+            font-size: 34px;
+
+            margin: 0 0 5px;
+
+        }
+
+
+        .founder-role {
+
+            color: #d4a600;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .founder-info p {
+
+            color: #555;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* ================= UNIQUE QUOTE ================= */
+
+        .founder-quote {
+
+            margin-top: 25px;
+
+            padding: 20px 25px;
+
+            background: #09265c;
+
+            color: white;
+
+            border-left: 5px solid #f5bd19;
+
+            border-radius: 12px;
+
+            font-size: 18px;
+
+            font-style: italic;
+
+            line-height: 1.6;
+
+        }
+
+
+        .founder-quote span {
+
+            display: block;
+
+            margin-top: 10px;
+
+            color: #f5bd19;
+
+            font-size: 14px;
+
+            font-style: bold;
+
+            font-weight: bold;
+
+        }
+
+
+        /* ================= FOUNDER HIGHLIGHTS ================= */
+
+        .founder-highlights {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-top: 25px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .founder-highlight {
+
+            background: #f5f8fc;
+
+            padding: 10px 16px;
+
+            border-radius: 20px;
+
+            color: #09265c;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 768px) {
+
+            .contact-banner h1 {
+
+                font-size: 36px;
+
+            }
+
+
+            .contact-banner p {
+
+                font-size: 17px;
+
+            }
+
+
+            .founder-section {
+
+                padding: 60px 6%;
+
+            }
+
+
+            .founder-section > h2 {
+
+                font-size: 30px;
+
+            }
+
+
+            .founder-card {
+
+                flex-direction: column;
+
+                text-align: center;
+
+                padding: 25px;
+
+                gap: 30px;
+
+            }
+
+
+            .founder-photo {
+
+                flex: none;
+
+            }
+
+
+            .founder-photo img {
+
+                width: 300px;
+
+                height: 300px;
+
+            }
+
+
+            .founder-info h3 {
+
+                font-size: 28px;
+
+            }
+
+
+            .founder-highlights {
+
+                justify-content: center;
+
+            }
+
+
+            .founder-quote {
+
+                text-align: left;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+
+        ✈ Yashaswini Airways
+
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="flights.html">
+            Flights
+        </a>
+
+        <a href="booking.html">
+            Booking
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html" class="active">
+            Contact
+        </a>
+
+        <a href="login.html" class="login-link">
+            Login
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ================= CONTACT BANNER ================= -->
+
+<section class="contact-banner">
+
+    <h1>
+        Contact Us
+    </h1>
+
+    <p>
+        We're here to help you with your journey.
+    </p>
+
+</section>
+
+
+
+<!-- ================= CONTACT SECTION ================= -->
+
+<section class="contact-section">
+
+
+    <div class="contact-info">
+
+        <p class="section-small-title">
+            GET IN TOUCH
+        </p>
+
+
+        <h2>
+            We'd Love To Hear From You
+        </h2>
+
+
+        <div class="contact-item">
+
+            <div class="contact-icon">
+                📍
+            </div>
+
+            <div>
+
+                <h3>
+                    Address
+                </h3>
+
+                <p>
+                    Yashaswini Airways Office<br>
+                    Kurnool, Andhra Pradesh, India
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="contact-item">
+
+            <div class="contact-icon">
+                📞
+            </div>
+
+            <div>
+
+                <h3>
+                    Phone
+                </h3>
+
+                <p>
+                    +91 98765 43210
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="contact-item">
+
+            <div class="contact-icon">
+                ✉️
+            </div>
+
+            <div>
+
+                <h3>
+                    Email
+                </h3>
+
+                <p>
+                    support@yashaswiniairways.com
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="contact-item">
+
+            <div class="contact-icon">
+                🕐
+            </div>
+
+            <div>
+
+                <h3>
+                    Working Hours
+                </h3>
+
+                <p>
+                    Monday - Sunday<br>
+                    24 Hours
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= CONTACT FORM ================= -->
+
+    <div class="contact-form-box">
+
+        <h2>
+            Send Us a Message
+        </h2>
+
+
+        <form id="contactForm">
+
+            <label>
+                Name
+            </label>
+
+            <input
+                type="text"
+                placeholder="Enter your name"
+                required>
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                placeholder="Enter your email"
+                required>
+
+
+            <label>
+                Subject
+            </label>
+
+            <input
+                type="text"
+                placeholder="Enter subject"
+                required>
+
+
+            <label>
+                Message
+            </label>
+
+            <textarea
+                rows="6"
+                placeholder="Write your message"
+                required></textarea>
+
+
+            <button
+                type="submit"
+                class="confirm-btn">
+
+                Send Message
+
+            </button>
+
+        </form>
+
+
+        <div id="contactMessage"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- ================= FOUNDER SECTION ================ -->
+<!-- ================================================= -->
+
+<section class="founder-section">
+
+
+    <p class="founder-label">
+
+        MEET THE FOUNDER
+
+    </p>
+
+
+    <h2>
+
+        The Vision Behind
+        Yashaswini Airways
+
+    </h2>
+
+
+
+    <div class="founder-card">
+
+
+        <!-- ================= FOUNDER IMAGE ================= -->
+
+        <div class="founder-photo">
+
+            <img
+                src="./images/my-photo1.jpeg"
+                alt="Founder of Yashaswini Airways">
+
+        </div>
+
+
+
+        <!-- ================= FOUNDER DETAILS ================= -->
+
+        <div class="founder-info">
+
+
+            <h3>
+
+                Yashaswini
+
+            </h3>
+
+
+            <p class="founder-role">
+
+                Founder & CEO
+                | Yashaswini Airways
+
+            </p>
+
+
+            <p>
+
+                Yashaswini Airways is built with a vision
+                to make every journey more comfortable,
+                reliable and memorable.
+
+            </p>
+
+
+            <p>
+
+                With a passion for aviation, technology
+                and innovation, the founder aims to create
+                a modern travel experience where every
+                passenger feels valued.
+
+            </p>
+
+
+
+            <!-- ================= UNIQUE QUOTE ================= -->
+
+            <div class="founder-quote">
+
+                “A journey is not just about reaching
+                a destination; it is about creating
+                memories along the way.”
+
+                <span>
+                    — Founder, Yashaswini Airways
+                </span>
+
+            </div>
+
+
+
+            <!-- ================= HIGHLIGHTS ================= -->
+
+            <div class="founder-highlights">
+
+                <div class="founder-highlight">
+                    ✈ Aviation
+                </div>
+
+                <div class="founder-highlight">
+                    💡 Innovation
+                </div>
+
+                <div class="founder-highlight">
+                    🌎 Connecting People
+                </div>
+
+                <div class="founder-highlight">
+                    ⭐ Customer First
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+
+        ✈ Yashaswini Airways
+
+    </div>
+
+
+    <p>
+
+        Connecting dreams, one journey at a time.
+
+    </p>
+
+
+    <p>
+
+        © 2026 Yashaswini Airways.
+        All Rights Reserved.
+
+    </p>
+
+</footer>
+
+
+
+<script src="js/script.js"></script>
+
+
+</body>
+
+</html>

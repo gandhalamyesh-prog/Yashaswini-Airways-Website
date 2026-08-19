@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Yashaswini Airways | Booking</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* ================= BOOKING BANNER IMAGE ================= */
+
+        .booking-banner {
+            min-height: 460px;
+
+            background-image:
+                linear-gradient(
+                    rgba(5, 35, 80, 0.55),
+                    rgba(5, 35, 80, 0.55)
+                ),
+                url("images/booking-banner.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+
+        .booking-banner h1 {
+            color: white;
+            font-size: 58px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .booking-banner p {
+            color: white;
+            font-size: 21px;
+        }
+
+
+        /* ================= PAYMENT MODE ================= */
+
+        .payment-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: #f5f8fc;
+            border-radius: 20px;
+        }
+
+        .payment-section h2 {
+            color: #09265c;
+            margin-bottom: 10px;
+        }
+
+        .payment-subtitle {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .payment-card {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 22px;
+
+            background: white;
+
+            border: 2px solid #e0e5ec;
+
+            border-radius: 16px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .payment-card:hover {
+            border-color: #f5bd19;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .payment-card input {
+            width: 20px;
+            height: 20px;
+
+            accent-color: #09265c;
+        }
+
+        .payment-icon {
+            font-size: 32px;
+        }
+
+        .payment-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .payment-content strong {
+            color: #09265c;
+            font-size: 17px;
+        }
+
+        .payment-content small {
+            color: #777;
+            font-size: 12px;
+        }
+
+        .payment-card:has(input:checked) {
+            border-color: #f5bd19;
+            background: #fffdf4;
+            box-shadow: 0 5px 18px rgba(245,189,25,0.18);
+        }
+
+        .payment-message {
+            margin-top: 20px;
+
+            padding: 15px 20px;
+
+            border-radius: 12px;
+
+            background: white;
+
+            color: #09265c;
+
+            font-weight: 600;
+
+            display: none;
+        }
+
+
+        /* ================= PAYMENT DETAILS ================= */
+
+        .payment-details {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .payment-details input,
+        .payment-details select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .payment-details label {
+            color: #09265c;
+            font-weight: 600;
+        }
+
+        .upi-box,
+        .card-box,
+        .bank-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 768px) {
+
+            .booking-banner {
+                min-height: 360px;
+            }
+
+            .booking-banner h1 {
+                font-size: 40px;
+            }
+
+            .booking-banner p {
+                font-size: 17px;
+            }
+
+            .payment-options {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        ✈ Yashaswini Airways
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="flights.html">
+            Flights
+        </a>
+
+        <a href="booking.html" class="active">
+            Booking
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="login.html" class="login-link">
+            Login
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ================= PAGE BANNER ================= -->
+
+<section class="page-banner booking-banner">
+
+    <div>
+
+        <h1>
+            Book Your Flight
+        </h1>
+
+        <p>
+            Complete your details and select your preferred seats.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= BOOKING SECTION ================= -->
+
+<section class="booking-section">
+
+
+<form id="bookingForm" class="booking-form">
+
+
+    <!-- ================= PASSENGER COUNT ================= -->
+
+    <h2>
+        Booking Details
+    </h2>
+
+
+    <div class="passenger-count-box">
+
+        <label>
+            Number of Passengers
+        </label>
+
+        <select
+            id="passengerCount"
+            onchange="createPassengerFields()">
+
+            <option value="1">
+                1 Passenger
+            </option>
+
+            <option value="2">
+                2 Passengers
+            </option>
+
+            <option value="3">
+                3 Passengers
+            </option>
+
+            <option value="4">
+                4 Passengers
+            </option>
+
+        </select>
+
+    </div>
+
+
+
+    <!-- ================= PASSENGER FIELDS ================= -->
+
+    <h2>
+        Passenger Details
+    </h2>
+
+    <div id="passengerFields"></div>
+
+
+
+    <!-- ================= FLIGHT DETAILS ================= -->
+
+    <h2 class="flight-title">
+        Flight Details
+    </h2>
+
+
+    <div class="form-grid">
+
+
+        <div>
+
+            <label>
+                From
+            </label>
+
+            <select id="bookingFrom" required>
+
+                <option value="">
+                    Select Departure
+                </option>
+
+                <option>
+                    Hyderabad
+                </option>
+
+                <option>
+                    Delhi
+                </option>
+
+                <option>
+                    Mumbai
+                </option>
+
+                <option>
+                    Chennai
+                </option>
+
+                <option>
+                    Bangalore
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div>
+
+            <label>
+                To
+            </label>
+
+            <select id="bookingTo" required>
+
+                <option value="">
+                    Select Destination
+                </option>
+
+                <option>
+                    Hyderabad
+                </option>
+
+                <option>
+                    Delhi
+                </option>
+
+                <option>
+                    Mumbai
+                </option>
+
+                <option>
+                    Goa
+                </option>
+
+                <option>
+                    Kolkata
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div>
+
+            <label>
+                Travel Date
+            </label>
+
+            <input
+                type="date"
+                id="travelDate"
+                required>
+
+        </div>
+
+
+
+        <div>
+
+            <label>
+                Class
+            </label>
+
+            <select id="travelClass">
+
+                <option>
+                    Economy
+                </option>
+
+                <option>
+                    Premium Economy
+                </option>
+
+                <option>
+                    Business Class
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= SEAT SELECTION ================= -->
+
+    <h2 class="seat-title">
+        Select Your Seats
+    </h2>
+
+
+    <p class="seat-instruction">
+
+        Select the required number of seats
+        according to the number of passengers.
+
+    </p>
+
+
+
+    <div class="seat-layout">
+
+
+        <div class="seat-row">
+
+            <button type="button"
+                    class="seat"
+                    data-seat="1A">
+                1A
+            </button>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="1B">
+                1B
+            </button>
+
+            <span class="aisle"></span>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="1C">
+                1C
+            </button>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="1D">
+                1D
+            </button>
+
+        </div>
+
+
+
+        <div class="seat-row">
+
+            <button type="button"
+                    class="seat"
+                    data-seat="2A">
+                2A
+            </button>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="2B">
+                2B
+            </button>
+
+            <span class="aisle"></span>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="2C">
+                2C
+            </button>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="2D">
+                2D
+            </button>
+
+        </div>
+
+
+
+        <div class="seat-row">
+
+            <button type="button"
+                    class="seat booked"
+                    disabled>
+                3A
+            </button>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="3B">
+                3B
+            </button>
+
+            <span class="aisle"></span>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="3C">
+                3C
+            </button>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="3D">
+                3D
+            </button>
+
+        </div>
+
+
+
+        <div class="seat-row">
+
+            <button type="button"
+                    class="seat"
+                    data-seat="4A">
+                4A
+            </button>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="4B">
+                4B
+            </button>
+
+            <span class="aisle"></span>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="4C">
+                4C
+            </button>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="4D">
+                4D
+            </button>
+
+        </div>
+
+
+
+        <div class="seat-row">
+
+            <button type="button"
+                    class="seat"
+                    data-seat="5A">
+                5A
+            </button>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="5B">
+                5B
+            </button>
+
+            <span class="aisle"></span>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="5C">
+                5C
+            </button>
+
+            <button type="button"
+                    class="seat"
+                    data-seat="5D">
+                5D
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= SELECTED SEATS ================= -->
+
+    <p id="selectedSeat"
+       class="selected-seat">
+
+        Selected Seats:
+        <strong>None</strong>
+
+    </p>
+
+
+
+    <!-- ================= PAYMENT MODE ================= -->
+
+    <div class="payment-section">
+
+        <h2>
+            💳 Payment Mode
+        </h2>
+
+        <p class="payment-subtitle">
+            Choose your preferred payment method
+            to complete your booking.
+        </p>
+
+
+        <div class="payment-options">
+
+
+            <!-- UPI -->
+
+            <label class="payment-card">
+
+                <input
+                    type="radio"
+                    name="paymentMode"
+                    value="UPI">
+
+                <span class="payment-icon">
+                    📱
+                </span>
+
+                <span class="payment-content">
+
+                    <strong>
+                        UPI
+                    </strong>
+
+                    <small>
+                        Google Pay / PhonePe / Paytm
+                    </small>
+
+                </span>
+
+            </label>
+
+
+
+            <!-- CARD -->
+
+            <label class="payment-card">
+
+                <input
+                    type="radio"
+                    name="paymentMode"
+                    value="Credit / Debit Card">
+
+                <span class="payment-icon">
+                    💳
+                </span>
+
+                <span class="payment-content">
+
+                    <strong>
+                        Credit / Debit Card
+                    </strong>
+
+                    <small>
+                        Visa / Mastercard / RuPay
+                    </small>
+
+                </span>
+
+            </label>
+
+
+
+            <!-- NET BANKING -->
+
+            <label class="payment-card">
+
+                <input
+                    type="radio"
+                    name="paymentMode"
+                    value="Net Banking">
+
+                <span class="payment-icon">
+                    🏦
+                </span>
+
+                <span class="payment-content">
+
+                    <strong>
+                        Net Banking
+                    </strong>
+
+                    <small>
+                        All major banks
+                    </small>
+
+                </span>
+
+            </label>
+
+        </div>
+
+
+
+        <!-- ================= PAYMENT MESSAGE ================= -->
+
+        <div
+            id="paymentMessage"
+            class="payment-message">
+        </div>
+
+
+
+        <!-- ================= UPI DETAILS ================= -->
+
+        <div
+            id="upiDetails"
+            class="payment-details">
+
+            <div class="upi-box">
+
+                <label>
+                    UPI ID
+                </label>
+
+                <input
+                    type="text"
+                    id="upiId"
+                    placeholder="example@upi">
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CARD DETAILS ================= -->
+
+        <div
+            id="cardDetails"
+            class="payment-details">
+
+            <div class="card-box">
+
+                <div class="form-grid">
+
+                    <div>
+
+                        <label>
+                            Card Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cardNumber"
+                            placeholder="XXXX XXXX XXXX XXXX"
+                            maxlength="19">
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Card Holder Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cardName"
+                            placeholder="Enter card holder name">
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Expiry Date
+                        </label>
+
+                        <input
+                            type="text"
+                            id="expiry"
+                            placeholder="MM/YY"
+                            maxlength="5">
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            CVV
+                        </label>
+
+                        <input
+                            type="password"
+                            id="cvv"
+                            placeholder="CVV"
+                            maxlength="3">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= NET BANKING DETAILS ================= -->
+
+        <div
+            id="bankDetails"
+            class="payment-details">
+
+            <div class="bank-box">
+
+                <label>
+                    Select Your Bank
+                </label>
+
+                <select id="bankName">
+
+                    <option value="">
+                        Select Bank
+                    </option>
+
+                    <option>
+                        State Bank of India
+                    </option>
+
+                    <option>
+                        HDFC Bank
+                    </option>
+
+                    <option>
+                        ICICI Bank
+                    </option>
+
+                    <option>
+                        Axis Bank
+                    </option>
+
+                    <option>
+                        Kotak Mahindra Bank
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= CONFIRM ================= -->
+
+    <button
+        type="submit"
+        class="confirm-btn">
+
+        ✈ Confirm Booking
+
+    </button>
+
+
+</form>
+
+
+
+<!-- ================= BOOKING RESULT ================= -->
+
+<div id="bookingResult"></div>
+
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        ✈ Yashaswini Airways
+    </div>
+
+    <p>
+        Connecting dreams, one journey at a time.
+    </p>
+
+    <p>
+        © 2026 Yashaswini Airways.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+let selectedSeats = [];
+
+
+
+/* ================= PASSENGER FIELDS ================= */
+
+function createPassengerFields() {
+
+    let count =
+        parseInt(
+            document.getElementById(
+                "passengerCount"
+            ).value
+        );
+
+
+    let container =
+        document.getElementById(
+            "passengerFields"
+        );
+
+
+    container.innerHTML = "";
+
+    selectedSeats = [];
+
+
+    document.querySelectorAll(
+        ".seat.selected"
+    ).forEach(function(seat) {
+
+        seat.classList.remove(
+            "selected"
+        );
+
+    });
+
+
+    document.getElementById(
+        "selectedSeat"
+    ).innerHTML =
+        "Selected Seats: <strong>None</strong>";
+
+
+
+    for (
+        let i = 1;
+        i <= count;
+        i++
+    ) {
+
+        container.innerHTML += `
+
+            <div class="passenger-card">
+
+                <h3>
+                    Passenger ${i}
+                </h3>
+
+                <div class="form-grid">
+
+
+                    <div>
+
+                        <label>
+                            First Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="firstName${i}"
+                            placeholder="Enter first name"
+                            required>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Last Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="lastName${i}"
+                            placeholder="Enter last name"
+                            required>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email${i}"
+                            placeholder="Enter email"
+                            required>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Phone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone${i}"
+                            placeholder="Enter phone number"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+createPassengerFields();
+
+
+
+/* ================= SEAT SELECTION ================= */
+
+const seats =
+    document.querySelectorAll(
+        ".seat[data-seat]"
+    );
+
+
+seats.forEach(function(seat) {
+
+    seat.addEventListener(
+        "click",
+        function() {
+
+
+            let seatNumber =
+                seat.getAttribute(
+                    "data-seat"
+                );
+
+
+            let passengerCount =
+                parseInt(
+                    document.getElementById(
+                        "passengerCount"
+                    ).value
+                );
+
+
+
+            if (
+                selectedSeats.includes(
+                    seatNumber
+                )
+            ) {
+
+                selectedSeats =
+                    selectedSeats.filter(
+                        function(item) {
+
+                            return item !==
+                                   seatNumber;
+
+                        }
+                    );
+
+
+                seat.classList.remove(
+                    "selected"
+                );
+
+            }
+
+
+            else {
+
+                if (
+                    selectedSeats.length >=
+                    passengerCount
+                ) {
+
+                    alert(
+                        "Please select only "
+                        +
+                        passengerCount
+                        +
+                        " seat(s)."
+                    );
+
+                    return;
+
+                }
+
+
+                selectedSeats.push(
+                    seatNumber
+                );
+
+
+                seat.classList.add(
+                    "selected"
+                );
+
+            }
+
+
+
+            document.getElementById(
+                "selectedSeat"
+            ).innerHTML =
+
+                "Selected Seats: <strong>"
+                +
+                (
+                    selectedSeats.length > 0
+                    ?
+                    selectedSeats.join(", ")
+                    :
+                    "None"
+                )
+                +
+                "</strong>";
+
+        }
+    );
+
+});
+
+
+
+/* ================= PAYMENT MODE ================= */
+
+const paymentModes =
+    document.querySelectorAll(
+        'input[name="paymentMode"]'
+    );
+
+
+paymentModes.forEach(
+    function(payment) {
+
+        payment.addEventListener(
+            "change",
+            function() {
+
+
+                let message =
+                    document.getElementById(
+                        "paymentMessage"
+                    );
+
+
+                let upi =
+                    document.getElementById(
+                        "upiDetails"
+                    );
+
+                let card =
+                    document.getElementById(
+                        "cardDetails"
+                    );
+
+                let bank =
+                    document.getElementById(
+                        "bankDetails"
+                    );
+
+
+                upi.style.display = "none";
+                card.style.display = "none";
+                bank.style.display = "none";
+
+                message.style.display = "block";
+
+
+
+                if (
+                    this.value === "UPI"
+                ) {
+
+                    message.innerHTML =
+                        "📱 UPI selected. Enter your UPI ID below.";
+
+                    upi.style.display =
+                        "block";
+
+                }
+
+
+                else if (
+                    this.value ===
+                    "Credit / Debit Card"
+                ) {
+
+                    message.innerHTML =
+                        "💳 Card payment selected. Enter your card details below.";
+
+                    card.style.display =
+                        "block";
+
+                }
+
+
+                else if (
+                    this.value ===
+                    "Net Banking"
+                ) {
+
+                    message.innerHTML =
+                        "🏦 Net Banking selected. Select your bank below.";
+
+                    bank.style.display =
+                        "block";
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+
+/* ================= BOOKING SUBMIT ================= */
+
+document.getElementById(
+    "bookingForm"
+).addEventListener(
+    "submit",
+    function(event) {
+
+
+        event.preventDefault();
+
+
+
+        let passengerCount =
+            parseInt(
+                document.getElementById(
+                    "passengerCount"
+                ).value
+            );
+
+
+        let from =
+            document.getElementById(
+                "bookingFrom"
+            ).value;
+
+
+        let to =
+            document.getElementById(
+                "bookingTo"
+            ).value;
+
+
+        let date =
+            document.getElementById(
+                "travelDate"
+            ).value;
+
+
+        let travelClass =
+            document.getElementById(
+                "travelClass"
+            ).value;
+
+
+        let result =
+            document.getElementById(
+                "bookingResult"
+            );
+
+
+
+        /* ================= PAYMENT VALIDATION ================= */
+
+        let selectedPayment =
+            document.querySelector(
+                'input[name="paymentMode"]:checked'
+            );
+
+
+        if (!selectedPayment) {
+
+            result.innerHTML = `
+
+                <div class="booking-error">
+
+                    ⚠️ Please select a payment mode.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        let paymentMode =
+            selectedPayment.value;
+
+
+
+        /* ================= CITY VALIDATION ================= */
+
+        if (from === to) {
+
+            result.innerHTML = `
+
+                <div class="booking-error">
+
+                    ⚠️ From and To cities
+                    cannot be the same.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+
+        /* ================= SEAT VALIDATION ================= */
+
+        if (
+            selectedSeats.length !==
+            passengerCount
+        ) {
+
+            result.innerHTML = `
+
+                <div class="booking-error">
+
+                    ⚠️ Please select
+                    ${passengerCount}
+                    seat(s) for
+                    ${passengerCount}
+                    passenger(s).
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+
+        /* ================= PAYMENT DETAILS VALIDATION ================= */
+
+        if (paymentMode === "UPI") {
+
+            let upiId =
+                document.getElementById(
+                    "upiId"
+                ).value.trim();
+
+
+            if (upiId === "") {
+
+                result.innerHTML = `
+
+                    <div class="booking-error">
+
+                        ⚠️ Please enter your UPI ID.
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+        }
+
+
+
+        if (
+            paymentMode ===
+            "Credit / Debit Card"
+        ) {
+
+            let cardNumber =
+                document.getElementById(
+                    "cardNumber"
+                ).value.trim();
+
+
+            let cardName =
+                document.getElementById(
+                    "cardName"
+                ).value.trim();
+
+
+            let expiry =
+                document.getElementById(
+                    "expiry"
+                ).value.trim();
+
+
+            let cvv =
+                document.getElementById(
+                    "cvv"
+                ).value.trim();
+
+
+            if (
+                cardNumber === "" ||
+                cardName === "" ||
+                expiry === "" ||
+                cvv === ""
+            ) {
+
+                result.innerHTML = `
+
+                    <div class="booking-error">
+
+                        ⚠️ Please enter all card details.
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+        }
+
+
+
+        if (
+            paymentMode ===
+            "Net Banking"
+        ) {
+
+            let bank =
+                document.getElementById(
+                    "bankName"
+                ).value;
+
+
+            if (bank === "") {
+
+                result.innerHTML = `
+
+                    <div class="booking-error">
+
+                        ⚠️ Please select your bank.
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+        }
+
+
+
+        /* ================= PASSENGER DETAILS ================= */
+
+        let passengers = [];
+
+
+        for (
+            let i = 1;
+            i <= passengerCount;
+            i++
+        ) {
+
+
+            let firstName =
+                document.getElementById(
+                    "firstName" + i
+                ).value.trim();
+
+
+            let lastName =
+                document.getElementById(
+                    "lastName" + i
+                ).value.trim();
+
+
+            let email =
+                document.getElementById(
+                    "email" + i
+                ).value.trim();
+
+
+            let phone =
+                document.getElementById(
+                    "phone" + i
+                ).value.trim();
+
+
+
+            passengers.push({
+
+                name:
+                    firstName
+                    +
+                    " "
+                    +
+                    lastName,
+
+                email:
+                    email,
+
+                phone:
+                    phone,
+
+                seat:
+                    selectedSeats[i - 1]
+
+            });
+
+        }
+
+
+
+        /* ================= BOOKING ID ================= */
+
+        let bookingId =
+            "YA"
+            +
+            Math.floor(
+                100000 +
+                Math.random() * 900000
+            );
+
+
+
+        /* ================= PASSENGER HTML ================= */
+
+        let passengerHTML = "";
+
+
+        passengers.forEach(
+            function(
+                passenger,
+                index
+            ) {
+
+
+                passengerHTML += `
+
+                    <div class="ticket-passenger">
+
+                        <h3>
+                            Passenger
+                            ${index + 1}
+                        </h3>
+
+
+                        <div
+                            class="passenger-ticket-grid">
+
+
+                            <div>
+
+                                <span>
+                                    Name
+                                </span>
+
+                                <strong>
+                                    ${passenger.name}
+                                </strong>
+
+                            </div>
+
+
+
+                            <div>
+
+                                <span>
+                                    Seat
+                                </span>
+
+                                <strong>
+                                    ${passenger.seat}
+                                </strong>
+
+                            </div>
+
+
+
+                            <div>
+
+                                <span>
+                                    Email
+                                </span>
+
+                                <strong>
+                                    ${passenger.email}
+                                </strong>
+
+                            </div>
+
+
+
+                            <div>
+
+                                <span>
+                                    Phone
+                                </span>
+
+                                <strong>
+                                    ${passenger.phone}
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+        );
+
+
+
+        /* ================= TICKET ================= */
+
+        result.innerHTML = `
+
+            <div class="ticket-card">
+
+
+                <div class="ticket-top">
+
+                    <div>
+
+                        <h2>
+                            ✈ Yashaswini Airways
+                        </h2>
+
+                        <p>
+                            E-Ticket / Booking Confirmation
+                        </p>
+
+                    </div>
+
+
+                    <div class="confirmed">
+
+                        ✓ CONFIRMED
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="booking-success">
+
+                    <h1>
+                        🎉 Booking Confirmed!
+                    </h1>
+
+                    <p>
+                        Your flight has been
+                        successfully booked.
+                    </p>
+
+                </div>
+
+
+
+                <div class="booking-id">
+
+                    <span>
+                        Booking ID
+                    </span>
+
+                    <strong>
+                        ${bookingId}
+                    </strong>
+
+                </div>
+
+
+
+                <div class="route">
+
+
+                    <div>
+
+                        <small>
+                            FROM
+                        </small>
+
+                        <h2>
+                            ${from}
+                        </h2>
+
+                    </div>
+
+
+
+                    <div class="plane-icon">
+                        ✈
+                    </div>
+
+
+
+                    <div>
+
+                        <small>
+                            TO
+                        </small>
+
+                        <h2>
+                            ${to}
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="ticket-info">
+
+
+                    <div>
+
+                        <span>
+                            Travel Date
+                        </span>
+
+                        <strong>
+                            ${date}
+                        </strong>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span>
+                            Class
+                        </span>
+
+                        <strong>
+                            ${travelClass}
+                        </strong>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span>
+                            Flight
+                        </span>
+
+                        <strong>
+                            YA-101
+                        </strong>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span>
+                            Passengers
+                        </span>
+
+                        <strong>
+                            ${passengerCount}
+                        </strong>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span>
+                            Payment Mode
+                        </span>
+
+                        <strong>
+                            ${paymentMode}
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="all-passengers">
+
+                    <h2>
+                        Passenger Details
+                    </h2>
+
+                    ${passengerHTML}
+
+                </div>
+
+
+
+                <div class="ticket-footer">
+
+                    <p>
+                        Payment mode:
+                        <strong>
+                            ${paymentMode}
+                        </strong>
+                    </p>
+
+                    <p>
+                        Please carry a valid ID proof
+                        during your journey.
+                    </p>
+
+
+
+                    <button
+                        type="button"
+                        onclick="window.print()"
+                        class="print-btn">
+
+                        🖨 Print Ticket
+
+                    </button>
+
+
+
+                    <button
+                        type="button"
+                        onclick="goHome()"
+                        class="home-btn">
+
+                        🏠 Go to Home
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        `;
+
+
+
+        /* ================= BOOK SELECTED SEATS ================= */
+
+        selectedSeats.forEach(
+            function(seatNumber) {
+
+
+                let seat =
+                    document.querySelector(
+                        '[data-seat="'
+                        +
+                        seatNumber
+                        +
+                        '"]'
+                    );
+
+
+                if (seat) {
+
+                    seat.classList.remove(
+                        "selected"
+                    );
+
+                    seat.classList.add(
+                        "booked"
+                    );
+
+                    seat.disabled = true;
+
+                }
+
+            }
+        );
+
+
+
+        /* ================= HIDE FORM ================= */
+
+        document.getElementById(
+            "bookingForm"
+        ).style.display =
+            "none";
+
+
+
+        /* ================= SCROLL RESULT ================= */
+
+        document.getElementById(
+            "bookingResult"
+        ).scrollIntoView({
+
+            behavior:
+                "smooth"
+
+        });
+
+    }
+);
+
+
+
+/* ================= HOME ================= */
+
+function goHome() {
+
+    window.location.href =
+        "index.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

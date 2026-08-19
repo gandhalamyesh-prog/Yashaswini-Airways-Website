@@ -1,0 +1,421 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+ 
+<head> 
+ 
+    <meta charset="UTF-8"> 
+ 
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0"> 
+ 
+    <title>Yashaswini Airways | About</title> 
+ 
+    <link rel="stylesheet" href="css/style.css"> 
+ 
+    <style> 
+ 
+        /* ================= ABOUT PAGE BANNER ================= */ 
+ 
+        .about-page-banner { 
+            position: relative; 
+            width: 100%; 
+            min-height: 500px; 
+ 
+            background-image: 
+                linear-gradient( 
+                    rgba(5, 35, 85, 0.58), 
+                    rgba(5, 35, 85, 0.58) 
+                ), 
+                url("images/about-banner.jpg"); 
+ 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+ 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+ 
+            text-align: center; 
+            color: white; 
+ 
+            padding: 80px 30px; 
+            box-sizing: border-box; 
+        } 
+ 
+ 
+        .about-page-banner h1 { 
+            font-size: 52px; 
+            margin: 0 0 20px; 
+            font-weight: 700; 
+            position: relative; 
+            z-index: 2; 
+        } 
+ 
+ 
+        .about-page-banner p { 
+            font-size: 21px; 
+            margin: 0; 
+            position: relative; 
+            z-index: 2; 
+        } 
+ 
+ 
+        /* ================= ABOUT CONTENT ================= */ 
+ 
+        .about-section { 
+            display: flex; 
+            align-items: center; 
+            gap: 60px; 
+            padding: 80px 8%; 
+            background: #f5f8fc; 
+        
+        } 
+ 
+ 
+        .about-image { 
+            flex: 1; 
+        } 
+ 
+ 
+        .about-image img { 
+            width: 100%; 
+            height: 600px; 
+            object-fit: cover; 
+            border-radius: 20px; 
+            display: block; 
+             margin-top: 60px;
+            transform: translateY(50px);
+        } 
+ 
+ 
+        .about-content { 
+            flex: 1; 
+        } 
+ 
+ 
+        .about-content h2 { 
+            color: #09265c; 
+            font-size: 36px; 
+            margin-bottom: 20px; 
+        } 
+ 
+ 
+        .about-content h3 { 
+            color: #09265c; 
+            margin-top: 25px; 
+        } 
+ 
+ 
+        .about-content p { 
+            line-height: 1.7; 
+            color: #555; 
+            font-size: 16px; 
+        } 
+ 
+ 
+        .section-small-title { 
+            color: #f5bd19 !important; 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+        } 
+ 
+ 
+        /* ================= STATS ================= */ 
+ 
+        .stats-section { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 25px; 
+            padding: 60px 8%; 
+            text-align: center; 
+            background: white; 
+        } 
+ 
+ 
+        .stats-section h2 { 
+            color: #09265c; 
+            font-size: 35px; 
+            margin-bottom: 8px; 
+        } 
+ 
+ 
+        .stats-section p { 
+            color: #555; 
+            margin: 0; 
+        } 
+ 
+ 
+        /* ================= MOBILE ================= */ 
+ 
+        @media (max-width: 768px) { 
+ 
+            .about-page-banner { 
+                min-height: 420px; 
+                padding: 60px 20px; 
+            } 
+ 
+ 
+            .about-page-banner h1 { 
+                font-size: 36px; 
+            } 
+ 
+ 
+            .about-page-banner p { 
+                font-size: 17px; 
+            } 
+ 
+ 
+            .about-section { 
+                flex-direction: column; 
+                padding: 50px 6%; 
+            } 
+ 
+ 
+            .about-image img { 
+                height: 300px; 
+            } 
+ 
+ 
+            .stats-section { 
+                grid-template-columns: repeat(2, 1fr); 
+            } 
+ 
+        } 
+ 
+    </style> 
+ 
+</head> 
+ 
+ 
+<body> 
+ 
+ 
+<!-- ================= HEADER ================= --> 
+ 
+<header> 
+ 
+    <div class="logo"> 
+        ✈ Yashaswini Airways 
+    </div> 
+ 
+ 
+    <nav> 
+ 
+        <a href="index.html"> 
+            Home 
+        </a> 
+ 
+ 
+        <a href="flights.html"> 
+            Flights 
+        </a> 
+ 
+ 
+        <a href="booking.html"> 
+            Booking 
+        </a> 
+ 
+ 
+        <a href="about.html" class="active"> 
+            About 
+        </a> 
+ 
+ 
+        <a href="contact.html"> 
+            Contact 
+        </a> 
+ 
+ 
+        <a href="login.html" class="login-link"> 
+            Login 
+        </a> 
+ 
+    </nav> 
+ 
+</header> 
+ 
+ 
+ 
+<!-- ================= ABOUT PAGE BANNER ================= --> 
+ 
+<section class="about-page-banner"> 
+ 
+    <h1> 
+        About Yashaswini Airways 
+    </h1> 
+ 
+ 
+    <p> 
+        Your trusted partner in the sky. 
+    </p> 
+ 
+</section> 
+ 
+ 
+ 
+<!-- ================= ABOUT SECTION ================= --> 
+ 
+<section class="about-section"> 
+ 
+ 
+    <div class="about-image"> 
+ 
+        <img 
+            src="images/my-photo.jpeg" 
+            alt="Yashaswini Airways Team"> 
+ 
+    </div> 
+ 
+ 
+ 
+    <div class="about-content"> 
+ 
+ 
+        <p class="section-small-title"> 
+            WHO WE ARE 
+        </p> 
+ 
+ 
+        <h2> 
+            Making Every Journey Special 
+        </h2> 
+ 
+ 
+        <p> 
+            Yashaswini Airways is a modern airline concept created to 
+            provide passengers with a simple, comfortable and enjoyable 
+            travel experience. 
+        </p> 
+ 
+ 
+        <p> 
+            Our goal is to connect people with beautiful destinations 
+            through reliable flights, affordable fares and excellent 
+            customer service. 
+        </p> 
+ 
+ 
+        <h3> 
+            Our Mission 
+        </h3> 
+ 
+ 
+        <p> 
+            To provide safe, comfortable and affordable air travel while 
+            creating a memorable experience for every passenger. 
+        </p> 
+ 
+ 
+        <h3> 
+            Our Vision 
+        </h3> 
+ 
+ 
+        <p> 
+            To become a trusted airline brand connecting people and 
+            destinations across India and beyond. 
+        </p> 
+ 
+ 
+    </div> 
+ 
+ 
+</section> 
+ 
+ 
+ 
+<!-- ================= STATS SECTION ================= --> 
+ 
+<section class="stats-section"> 
+ 
+ 
+    <div> 
+ 
+        <h2> 
+            10+ 
+        </h2> 
+ 
+        <p> 
+            Destinations 
+        </p> 
+ 
+    </div> 
+ 
+ 
+ 
+    <div> 
+ 
+        <h2> 
+            50+ 
+        </h2> 
+ 
+        <p> 
+            Daily Flights 
+        </p> 
+ 
+    </div> 
+ 
+ 
+ 
+    <div> 
+ 
+        <h2> 
+            1M+ 
+        </h2> 
+ 
+        <p> 
+            Travelers 
+        </p> 
+ 
+    </div> 
+ 
+ 
+ 
+    <div> 
+ 
+        <h2> 
+            24/7 
+        </h2> 
+ 
+        <p> 
+            Support 
+        </p> 
+ 
+    </div> 
+ 
+ 
+</section> 
+ 
+ 
+ 
+<!-- ================= FOOTER ================= --> 
+ 
+<footer> 
+ 
+    <div class="footer-logo"> 
+        ✈ Yashaswini Airways 
+    </div> 
+ 
+ 
+    <p> 
+        Connecting dreams, one journey at a time. 
+    </p> 
+ 
+ 
+    <p> 
+        © 2026 Yashaswini Airways. 
+        All Rights Reserved. 
+    </p> 
+ 
+</footer> 
+ 
+ 
+ 
+<script src="js/script.js"></script> 
+ 
+ 
+</body> 
+ 
+</html>
